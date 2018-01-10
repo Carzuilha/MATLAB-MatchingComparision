@@ -50,8 +50,8 @@ for i = 3:size(imgList)
        
     % Load the stereo pair...
     imgName = imgList(i).name;    
-    lImg = imread(strcat(DATABASE_NAME, '/', imgName, '/im0.', DATABASE_TYPE));
-    rImg = imread(strcat(DATABASE_NAME, '/', imgName, '/im1.', DATABASE_TYPE));
+    lImg = imread(strcat('dataset/', DATABASE_NAME, '/', imgName, '/im0.', DATABASE_TYPE));
+    rImg = imread(strcat('dataset/', DATABASE_NAME, '/', imgName, '/im1.', DATABASE_TYPE));
     
     % ...writes the name of stereo pair on each CSV...
     fprintf(csvCorn, '%12s,' , imgName);
