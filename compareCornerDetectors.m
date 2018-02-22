@@ -9,11 +9,11 @@ function compareCornerDetectors
 
 % ========================= CHOOSING DATABASE =============================
 
-%DATABASE_NAME = 'Middlebury';
-DATABASE_NAME = 'Minoru3D';
+DATABASE_NAME = 'Middlebury';
+%DATABASE_NAME = 'Minoru3D';
 
-%DATABASE_TYPE = 'png';
-DATABASE_TYPE = 'jpg';
+DATABASE_TYPE = 'png';
+%DATABASE_TYPE = 'jpg';
 
 
 %  ================== GENERATING CORNERS AND MATCHES =======================
@@ -44,7 +44,7 @@ fprintf(csvRate, 'MIN8VAL (%%), SURF (%%) ,MSER (%%)\n');
 
 %   Calculates the corners, matches and match rate for each image ---------
 
-imgList = dir(DATABASE_NAME);
+imgList = dir(strcat('dataset/', DATABASE_NAME));
 
 for i = 3:size(imgList)
        
