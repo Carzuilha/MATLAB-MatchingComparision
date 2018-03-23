@@ -9,8 +9,8 @@ function compareCornerDetectors
 
 % ========================= CHOOSING DATABASE =============================
 
-DATABASE_NAME = 'Middlebury';
-%DATABASE_NAME = 'Minoru3D';
+%DATABASE_NAME = 'Middlebury';
+DATABASE_NAME = 'Minoru3D';
 
 DATABASE_TYPE = 'png';
 %DATABASE_TYPE = 'jpg';
