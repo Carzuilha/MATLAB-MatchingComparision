@@ -31,16 +31,16 @@ fprintf(csvCorn, 'BRISK (Left), BRISK (Right),');
 fprintf(csvCorn, 'FAST (Left), FAST (Right),');
 fprintf(csvCorn, 'HARRIS (Left), HARRIS (Right),');
 fprintf(csvCorn, 'MIN8VAL (Left), MIN8VAL (Right),');
-fprintf(csvCorn, 'SURF (Left), SURF (Right),');
-fprintf(csvCorn, 'MSER (Left), MSER (Right)');
+fprintf(csvCorn, 'MSER (Left), MSER (Right),');
+fprintf(csvCorn, 'SURF (Left), SURF (Right)');
 fprintf(csvCorn, '\n');
 
 fprintf(csvMatc, 'IMAGE NAME,');
-fprintf(csvMatc, 'BRISK,FAST,HARRIS,MIN8VAL,SURF,MSER\n');
+fprintf(csvMatc, 'BRISK,FAST,HARRIS,MIN8VAL,MSER,SURF\n');
 
 fprintf(csvRate, 'IMAGE NAME,');
 fprintf(csvRate, 'BRISK (%%),FAST (%%),HARRIS (%%),');
-fprintf(csvRate, 'MIN8VAL (%%), SURF (%%) ,MSER (%%)\n');
+fprintf(csvRate, 'MIN8VAL (%%), MSER (%%) ,SURF (%%)\n');
 
 %   Calculates the corners, matches and match rate for each image ---------
 
@@ -76,61 +76,61 @@ for i = 3:size(imgList)
     
     minvalL = detectMinEigenFeatures(lImg);
     minvalR = detectMinEigenFeatures(rImg);
+        
+    mserL = detectMSERFeatures(lImg);
+    mserR = detectMSERFeatures(rImg);
     
     surfL = detectSURFFeatures(lImg);
     surfR = detectSURFFeatures(rImg);
-    
-    mserL = detectMSERFeatures(lImg);
-    mserR = detectMSERFeatures(rImg);
-       
+           
     % ...and writes the obtained values in the first CSV file.
     fprintf(csvCorn, '%d,%d,', length(briskL) , length(briskR) );
     fprintf(csvCorn, '%d,%d,', length(fastL)  , length(fastR)  );
     fprintf(csvCorn, '%d,%d,', length(harrisL), length(harrisR));
     fprintf(csvCorn, '%d,%d,', length(minvalL), length(minvalR));
-    fprintf(csvCorn, '%d,%d,', length(surfL)  , length(surfR)  );
-    fprintf(csvCorn, '%d,%d' , length(mserL)  , length(mserR)  );
+    fprintf(csvCorn, '%d,%d,', length(mserL)  , length(mserR)  );
+    fprintf(csvCorn, '%d,%d' , length(surfL)  , length(surfR)  );
     fprintf(csvCorn, '\n');
     
     %   Then, calculate the number of unique matches for each image, writing
     % on the second CSV file...
     [briskFeatL, briskVldPts] = extractFeatures(lImg, briskL);
     [briskFeatR, ~          ] = extractFeatures(lImg, briskR);        
-    briskNumM = matchFeatures(briskFeatL, briskFeatR);
+    briskNumM = matchFeatures(briskFeatL, briskFeatR, 'Unique', true);
     briskM = briskVldPts(briskNumM(:,1),:);
         
     [fastFeatL, fastVldPts] = extractFeatures(lImg, fastL);
     [fastFeatR, ~         ] = extractFeatures(lImg, fastR);    
-    fastNumM = matchFeatures(fastFeatL, fastFeatR);
+    fastNumM = matchFeatures(fastFeatL, fastFeatR, 'Unique', true);
     fastM = fastVldPts(fastNumM(:,1),:);
     
     [harrisFeatL, harrisVldPts] = extractFeatures(lImg, harrisL);
     [harrisFeatR, ~           ] = extractFeatures(lImg, harrisR);
-    harrisNumM = matchFeatures(harrisFeatL, harrisFeatR);
+    harrisNumM = matchFeatures(harrisFeatL, harrisFeatR, 'Unique', true);
     harrisM = harrisVldPts(harrisNumM(:,1),:);
     
     [minvalFeatL, minvalVldPts] = extractFeatures(lImg, minvalL);
     [minvalFeatR, ~            ] = extractFeatures(lImg, minvalR);    
-    minvalNumM = matchFeatures(minvalFeatL, minvalFeatR);
+    minvalNumM = matchFeatures(minvalFeatL, minvalFeatR, 'Unique', true);
     minvalM = minvalVldPts(minvalNumM(:,1),:);
-    
-    [surfFeatL, surfVldPts] = extractFeatures(lImg, surfL);
-    [surfFeatR, ~         ] = extractFeatures(lImg, surfR);    
-    surfNumM = matchFeatures(surfFeatL, surfFeatR);
-    surfM = surfVldPts(surfNumM(:,1),:);
         
     [mserFeatL, mserVldPts] = extractFeatures(lImg, mserL);
     [mserFeatR, ~         ] = extractFeatures(lImg, mserR);    
-    mserNumM = matchFeatures(mserFeatL, mserFeatR);
+    mserNumM = matchFeatures(mserFeatL, mserFeatR, 'Unique', true);
     mserM = mserVldPts(mserNumM(:,1),:); 
     
+    [surfFeatL, surfVldPts] = extractFeatures(lImg, surfL);
+    [surfFeatR, ~         ] = extractFeatures(lImg, surfR);    
+    surfNumM = matchFeatures(surfFeatL, surfFeatR, 'Unique', true);
+    surfM = surfVldPts(surfNumM(:,1),:);
+        
     % ...and writes the obtained values in the second CSV file.
     fprintf(csvMatc, '%d,', length(briskM));
     fprintf(csvMatc, '%d,', length(fastM));
     fprintf(csvMatc, '%d,', length(harrisM));
     fprintf(csvMatc, '%d,', length(minvalM));
-    fprintf(csvMatc, '%d,', length(surfM));
-    fprintf(csvMatc, '%d' , length(mserM));
+    fprintf(csvMatc, '%d,' , length(mserM));
+    fprintf(csvMatc, '%d', length(surfM));
     fprintf(csvMatc, '\n');
     
     % Finally, calculate the match rate (%%) for each image...
@@ -139,17 +139,17 @@ for i = 3:size(imgList)
     fastR   = (length(fastM) / ((length(fastL) + length(fastR)) / 2)) * 100;
     harrisR = (length(harrisM) / ((length(harrisL) + length(harrisR)) / 2)) * 100;
     minvalR = (length(minvalM) / ((length(minvalL) + length(minvalR)) / 2)) * 100;
-    surfR   = (length(surfM) / ((length(surfL) + length(surfR)) / 2)) * 100;
     mserR   = (length(mserM) / ((length(mserL) + length(mserR)) / 2)) * 100;
-    
+    surfR   = (length(surfM) / ((length(surfL) + length(surfR)) / 2)) * 100;
+        
     % ...and writes the obtained rates in the third CSV file.
     
     fprintf(csvRate, '%.2f,', briskR);
     fprintf(csvRate, '%.2f,', fastR);
     fprintf(csvRate, '%.2f,', harrisR);
     fprintf(csvRate, '%.2f,', minvalR);
-    fprintf(csvRate, '%.2f,', surfR);
-    fprintf(csvRate, '%.2f' , mserR);
+    fprintf(csvRate, '%.2f,', mserR);
+    fprintf(csvRate, '%.2f' , surfR);
     fprintf(csvRate, '\n');
     
 end
