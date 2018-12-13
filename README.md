@@ -8,6 +8,6 @@ Utilized materials:
 
 Since this project is in a "work-in-progress" state, a lot of thing can change until i finished it.
 
-Any questions can be submitted to the following email: carloswdecarvalho@outlook.com.
-
 ---------------------------------------------------------------------------------------------------------------------------------
+
+The available source codes here are under the MIT Licence (see the attached file "LICENSE" for more details). Any questions can be submitted to my personal email: carloswdecarvalho@outlook.com.
