@@ -8,6 +8,6 @@ This is a **MATLAB project** that objective is to **compare the number of matche
 
 Since **this project is in a _"work-in-progress"_ state**, a lot of thing can change until i finished it.
 
-## Licence
+## License
 
-The available source codes here are under the MIT License (see the attached file _LICENSE_ for more details). Any questions can be submitted to my [email](carloswdecarvalho@outlook.com).
+The available source codes here are under the MIT License (see the attached file `LICENSE` for more details). Any questions can be submitted to my e-mail: carloswdecarvalho@outlook.com.
