@@ -4,7 +4,7 @@ Este é um **projeto em MATLAB** cujo objetivo é **comparar o número de pontos
 
 ## Materiais Utilizados
 
-- **MATLAB R2014b**, versão x64, disponível em https://www.mathworks.com/products/matlab.html.
+- **MATLAB R2017b**, versão x64, disponível em https://www.mathworks.com/products/matlab.html.
 
 Uma vez que **este projeto está no estado de _"work-in-progress"_**, muita coisa pode mudar até este ser finalizado.
 

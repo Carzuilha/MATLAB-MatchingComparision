@@ -7,8 +7,8 @@
 
 function mRate = matchRate(matchM, matchL, matchR)
 
-% Calculates the rate (%) of matching corners.
+%   Calculates the rate (%) of matching corners.
 mRate = (length(matchM) / ((length(matchL) + length(matchR)) / 2)) * 100;
 
-% End of the script.
+%   Ends the script.
 end

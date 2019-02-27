@@ -7,6 +7,7 @@
 
 function [lFtrs, rFtrs, eTime] = getFeatures(lImg, rImg, algorithm)
 
+%   Detects features based on the chosen algorithm.
 switch algorithm
     case 'BRISK'
         tic;
@@ -38,4 +39,7 @@ switch algorithm
         lFtrs = detectSURFFeatures(lImg);
         rFtrs = detectSURFFeatures(rImg);
         eTime = round(toc, 3);
+end
+
+%   Ends the script.
 end

@@ -4,7 +4,7 @@ This is a **MATLAB project** that objective is to **compare the number of matche
 
 ## Utilized Materials
 
-- **MATLAB R2014b**, x64 version, available on https://www.mathworks.com/products/matlab.html.
+- **MATLAB R2017b**, x64 version, available on https://www.mathworks.com/products/matlab.html.
 
 Since **this project is in a _"work-in-progress"_ state**, a lot of thing can change until i finished it.
 
