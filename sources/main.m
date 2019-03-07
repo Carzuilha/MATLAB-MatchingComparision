@@ -1,8 +1,8 @@
 %==========================================================================
-%                             MAIN SCRIPT
+%                              MAIN SCRIPT
 % 
-%   This is the main script of the project. It is necessary a pair of stereo 
-% images to make it works.
+%   This is the main script of the project. It is necessary a dataset of 
+% stereo images to make it works.
 %==========================================================================
 
 function main
@@ -23,7 +23,7 @@ CSV_SEPARATOR = ';';
 
 % ====================== CREATING THE FILES ===============================
 
-%   Create CSV files for the corners, the matches and the rates.
+%   Creates CSV files for the corners, the matches and the rates.
 cornCsv = fopen(strcat('../outputs/', DATA_SOURCE, '_', NOISE_TYPE, 'Crn.csv'), 'w');
 matcCsv = fopen(strcat('../outputs/', DATA_SOURCE, '_', NOISE_TYPE, 'Mtc.csv'), 'w');
 rateCsv = fopen(strcat('../outputs/', DATA_SOURCE, '_', NOISE_TYPE, 'Rts.csv'), 'w');
@@ -211,7 +211,7 @@ for i = 1 : numImgs
     fprintf(timeCsv, '\n');
     fprintf(crpsCsv, '\n');
     
-    %   ...and update the needed values for post-calculation, if needs.
+    %   ...and updates the needed values for post-calculation, if needs.
     lCorners(i, 1) = length(lBrisk );
     lCorners(i, 2) = length(lFast  );
     lCorners(i, 3) = length(lHarris);

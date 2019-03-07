@@ -1,5 +1,5 @@
 %==========================================================================
-%                           GET IMAGE FEATURES
+%                             GET FEATURES
 % 
 %   This script is reponsible for the generation of the features (corners)
 % inside both images of the stereo pair.
