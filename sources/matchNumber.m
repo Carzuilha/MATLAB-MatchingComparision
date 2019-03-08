@@ -5,12 +5,12 @@
 % corners of a stereo pair.
 %==========================================================================
 
-function vldMtchs = matchNumber(lImg, rImg, lFtrs, rFtrs)
+function vldMtchs = matchNumber(lImage, rImage, lFeats, rFeats)
 
 %   Calculates the number of unique matches between the corners of the 
 % images.
-[lFeat, vldPts] = extractFeatures(lImg, lFtrs);
-[rFeat, ~     ] = extractFeatures(rImg, rFtrs);
+[lFeat, vldPts] = extractFeatures(lImage, lFeats);
+[rFeat, ~     ] = extractFeatures(rImage, rFeats);
 allMtchs = matchFeatures(lFeat, rFeat, 'Unique', true);
 vldMtchs = vldPts(allMtchs(:,1),:);
 

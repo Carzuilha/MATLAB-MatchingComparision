@@ -5,10 +5,10 @@
 % corners of a stereo pair.
 %==========================================================================
 
-function mRate = matchRate(matchM, matchL, matchR)
+function matchRate = matchRate(matMatch, lMatch, rMatch)
 
 %   Calculates the rate (%) of matching corners.
-mRate = (length(matchM) / ((length(matchL) + length(matchR)) / 2)) * 100;
+matchRate = (length(matMatch) / ((length(lMatch) + length(rMatch)) / 2)) * 100;
 
 %   Ends the script.
 end

@@ -5,13 +5,13 @@
 % stereo pair, if it's necessary.
 %==========================================================================
 
-function [lImg, rImg] = applyNoiseIfNeeded(lImg, rImg, noiseType)
+function [lImage, rImage] = applyNoiseIfNeeded(lImage, rImage, noiseType)
 
 %   Applies the corresponding noise (if added).
 switch noiseType
     case 'Gaussian'
-        lImg = imnoise(lImg, 'gaussian');
-        rImg = imnoise(rImg, 'gaussian');
+        lImage = imnoise(lImage, 'gaussian');
+        rImage = imnoise(rImage, 'gaussian');
     otherwise
         return;
 end
