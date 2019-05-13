@@ -10,4 +10,8 @@ Since **this project is in a _"work-in-progress"_ state**, a lot of thing can ch
 
 ## License
 
-The available source codes here are under the MIT license, version 3.0 (see the attached file `LICENSE` for more details). Any questions can be submitted to my e-mail: carloswdecarvalho@outlook.com.
+The available source codes here are under the MIT License (see the attached file `LICENSE` for more details). Any questions can be submitted to my e-mail: carloswdecarvalho@outlook.com.
+
+## References
+
+[1] Hartley, R; Zisserman, A. "Multiple View Geometry in Computer Vision". Cambridge University Press, 2003.
