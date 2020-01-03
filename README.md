@@ -4,7 +4,7 @@ This project aims to compare the corner detection algorithms present in MATLAB t
 
 ## Introduction
 
-Stereo vision is one of the areas of digital image processing that seeks to reconstruct a scene, in three dimensions, from a set of images obtained from it. One of the requirements for the reconstruction of a three-dimensional scene to be satisfactory is that the scene reconstruction algorithm is capable of recognizing common points that belong to the same object within the input images. This process of associating such points is called correspondence [1]. In general, the matching algorithms use the corners of the objects present in the analyzed images as reference for such a process.
+The **stereo vision** is one of the areas of digital image processing that seeks to reconstruct a scene, in three dimensions, from a set of images obtained from it. One of the requirements for the reconstruction of a three-dimensional scene to be satisfactory is that the scene reconstruction algorithm is capable of recognizing common points that belong to the same object within the input images. This process of associating such points is called correspondence [1]. In general, the matching algorithms use the corners of the objects present in the analyzed images as reference for such a process.
 
 Since there are several corner detecting algorithms in the literature, the corner detector chosen may directly impact the correspondence quality between a set of stereo images. So, this project aimed to make a comparison between the main corner detection algorithms, verifying their impact on the production of matches between pairs of stereo images.
 
