@@ -4,13 +4,9 @@ Este projeto tem por objetivo realizar uma comparação entre os algoritmos dete
 
 ## Introdução
 
-Um **mapa de disparidades** é uma representação gráfica da profundidade de elementos que estão presentes em uma cena. Os mapas de disparidade costumam ser muito utilizados na área de visão estéreo, em que tenta-se reproduzir computacionalmente aspectos da visão humana. Basicamente, a geração de um mapa de disparidades envolve até 3 (três) etapas:
+A visão estéreo é uma das áreas de processamento digital de imagens que busca reconstruir cena, em três dimensões, a partir de um conjunto de imagens obtidas da mesma. Um dos requisitos necessários para que a reconstrução de uma cena em três dimensões seja satisfatória é que o algoritmo de reconstrução da cena seja capaz de reconhecer pontos comuns, que pertençam a um mesmo objeto, dentro das imagens de entrada. Esse processo de associação entre tais pontos é chamado de correspondência [1]. Em geral, os algoritmos de correspondência utilizam os cantos dos objetos presentes nas imagens analisadas como referência para tal processo.
 
- - A **calibração**, que ao avaliar características das câmeras de um sistema de visão estéreo, busca parâmetros importantes à geração de um mapa de disparidades;
- - A **retificação**, em que os parâmetros obtidos na etapa anterior são utilizados como referência no processo de captura (e posteriormente ajuste) das imagens de uma cena;
- - A **correspondência**, que parte das imagens obtidas pelo processo de retificação para gerar o mapa de disparidades.
-
-Embora existam três etapas básicas, a primeira demanda tempo, o que pode impedir a utilização de sistemas de visão estéreo em ambientes reais. Por isso, há muitos estudos sobre como modelar sistemas de visão estéreo sem dependência de calibração [[1](https://www.researchgate.net/publication/220692096_Introductory_techniques_for_3-D_computer_vision)]. Uma das maneiras de se fazer isso é calculando um dos elementos-chave da etapa de calibração (conhecido como **matriz fundamental** [[2](https://www.cambridge.org/core/books/multiple-view-geometry-in-computer-vision/0B6F289C78B2B23F596CAA76D3D43F7A)]) utilizando apenas a geometria da cena a ser analisada. É o que este projeto faz. 
+Uma vez que, na literatura, existem vários algoritmos detectores de cantos, o detector de cantos escolhido pode impactar diretamente na qualidade das correspondências entre um conjunto de imagens estéreo. Desse modo, este projeto teve como objetivo realizar uma comparação entre os principais algoritmos de detecção de cantos, verificando o impacto dos mesmos na produção de correspondências entre pares de imagens estéreo.
 
 ## Materiais Utilizados
 

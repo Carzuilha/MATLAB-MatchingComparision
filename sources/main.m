@@ -23,7 +23,8 @@ CSV_SEPARATOR = ';';
 
 % ====================== CREATING THE FILES ===============================
 
-%   Creates CSV files for the corners, the matches and the rates.
+%   Creates CSV files for the corners, the matches the rates, the time spent on matches, 
+% and the corners-per-second correlation.
 cornCsv = fopen(strcat('../outputs/', DATA_SOURCE, '_', NOISE_TYPE, 'Crn.csv'), 'w');
 matcCsv = fopen(strcat('../outputs/', DATA_SOURCE, '_', NOISE_TYPE, 'Mtc.csv'), 'w');
 rateCsv = fopen(strcat('../outputs/', DATA_SOURCE, '_', NOISE_TYPE, 'Rts.csv'), 'w');
