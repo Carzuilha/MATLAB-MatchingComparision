@@ -10,7 +10,7 @@ Since there are several corner detecting algorithms in the literature, the corne
 
 ## Utilized Material
 
-- [**MATLAB R2017b**](https://www.mathworks.com/products/matlab.html) ou posterior, versão x64.
+- [**MATLAB R2017b**](https://www.mathworks.com/products/matlab.html) or later, x64 version.
 - A set of stereo images, available on the [Middlebury](http://vision.middlebury.edu/stereo/data/) database, for the tests.
 
 ## Additional Info
@@ -19,7 +19,7 @@ Since this project is in a "work-in-progress" state, a lot of thing can change u
 
 ## License
 
-The available source codes here are under the MIT License, version 3.0 (see the attached `LICENSE` file for more details). Any questions can be submitted to my email: carloswdecarvalho@outlook.com.
+The available source codes here are under the Apache License, version 2.0 (see the attached `LICENSE` file for more details). Any questions can be submitted to my email: carloswdecarvalho@outlook.com.
 
 ## References
 
